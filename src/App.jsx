@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
@@ -11,6 +13,14 @@ import Footer from "./components/Footer";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  
+ // AOS 初始化
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {

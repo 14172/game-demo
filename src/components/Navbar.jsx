@@ -76,7 +76,6 @@ function Navbar() {
             </div>
           </div>
 
-          {/* 下載按鈕 */}
           <button
             className="
               btn
@@ -133,6 +132,7 @@ function Navbar() {
                 text-white
               "
               href="#hero"
+              data-bs-dismiss="offcanvas"
             >
               首頁
             </a>
@@ -144,6 +144,7 @@ function Navbar() {
                 text-white
               "
               href="#chars"
+              data-bs-dismiss="offcanvas"
             >
               角色情報
             </a>
@@ -155,6 +156,7 @@ function Navbar() {
                 text-white
               "
               href="#rewards"
+              data-bs-dismiss="offcanvas"
             >
               預約獎勵
             </a>
@@ -166,6 +168,7 @@ function Navbar() {
                 text-white
               "
               href="#news"
+              data-bs-dismiss="offcanvas"
             >
               最新消息
             </a>

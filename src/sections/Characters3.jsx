@@ -5,12 +5,12 @@ function Characters3() {
   const navigate = useNavigate();
 
   return (
-    <section className="min-h-screen bg-gradient-to-b from-yellow-700 via-stone-950 to-black text-white pt-[140px] px-6 pb-20">
+    <section className="py-24 md:py-32 min-h-screen bg-gradient-to-b from-yellow-700 via-stone-950 to-black text-white pt-[140px] px-6 pb-20">
       <div className="max-w-6xl mx-auto">
         {/* 返回按鈕 */}
         <button
           onClick={() => navigate("/")}
-          className="mb-10 text-yellow-400 hover:text-white transition"
+          className="mb-10 p-4 text-yellow-400 hover:text-white transition"
         >
           ← 返回名錄
         </button>

@@ -18,7 +18,7 @@ function Hero() {
   const chart1Ref = useRef(null);
   const chart2Ref = useRef(null);
   const chart3Ref = useRef(null);
-  
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -124,86 +124,82 @@ function Hero() {
 
     return () => observer.disconnect();
   }, []);
-useEffect(() => {
-  if (
-    !chart1Ref.current ||
-    !chart2Ref.current ||
-    !chart3Ref.current
-  ) {
-    return;
-  }
+  useEffect(() => {
+    if (!chart1Ref.current || !chart2Ref.current || !chart3Ref.current) {
+      return;
+    }
 
-  const chartConfig = (data, color) => ({
-    type: "radar",
+    const chartConfig = (data, color) => ({
+      type: "radar",
 
-    data: {
-      labels: ["攻擊", "防禦", "機動", "輔助", "生命", "射程"],
+      data: {
+        labels: ["攻擊", "防禦", "機動", "輔助", "生命", "射程"],
 
-      datasets: [
-        {
-          data,
-          backgroundColor: `${color}33`,
-          borderColor: color,
-          borderWidth: 2,
-          pointRadius: 0,
-        },
-      ],
-    },
-
-    options: {
-      scales: {
-        r: {
-          grid: {
-            color: "rgba(255,255,255,0.1)",
+        datasets: [
+          {
+            data,
+            backgroundColor: `${color}33`,
+            borderColor: color,
+            borderWidth: 2,
+            pointRadius: 0,
           },
+        ],
+      },
 
-          angleLines: {
-            color: "rgba(255,255,255,0.1)",
-          },
+      options: {
+        scales: {
+          r: {
+            grid: {
+              color: "rgba(255,255,255,0.1)",
+            },
 
-          ticks: {
-            display: false,
-          },
+            angleLines: {
+              color: "rgba(255,255,255,0.1)",
+            },
 
-          pointLabels: {
-            color: "#888",
+            ticks: {
+              display: false,
+            },
 
-            font: {
-              size: 10,
+            pointLabels: {
+              color: "#888",
+
+              font: {
+                size: 10,
+              },
             },
           },
         },
-      },
 
-      plugins: {
-        legend: {
-          display: false,
+        plugins: {
+          legend: {
+            display: false,
+          },
         },
       },
-    },
-  });
+    });
 
-  const chart1 = new Chart(
-    chart1Ref.current,
-    chartConfig([95, 70, 85, 40, 75, 60], "#00f2ff"),
-  );
+    const chart1 = new Chart(
+      chart1Ref.current,
+      chartConfig([95, 70, 85, 40, 75, 60], "#00f2ff"),
+    );
 
-  const chart2 = new Chart(
-    chart2Ref.current,
-    chartConfig([60, 40, 95, 90, 50, 80], "#a855f7"),
-  );
+    const chart2 = new Chart(
+      chart2Ref.current,
+      chartConfig([60, 40, 95, 90, 50, 80], "#a855f7"),
+    );
 
-  const chart3 = new Chart(
-    chart3Ref.current,
-    chartConfig([80, 95, 40, 30, 98, 70], "#eab308"),
-  );
+    const chart3 = new Chart(
+      chart3Ref.current,
+      chartConfig([80, 95, 40, 30, 98, 70], "#eab308"),
+    );
 
-  return () => {
-    chart1.destroy();
-    chart2.destroy();
-    chart3.destroy();
-  };
-}, []);
+    return () => {
+      chart1.destroy();
+      chart2.destroy();
+      chart3.destroy();
+    };
+  }, []);
 
   return (
     <>
@@ -211,6 +207,7 @@ useEffect(() => {
       <section
         id="hero"
         className="hero-section relative overflow-hidden flex items-center justify-center text-center px-4"
+        data-aos="fade-down"
       >
         {/* 背景影片 */}
         <video
@@ -229,7 +226,7 @@ useEffect(() => {
             NEXT-GEN GAME RPG
           </h2>
 
-          <h1 className="!text-5xl md:!text-[5rem] !font-black leading-tight mb-6 tracking-normal">
+          <h1 className="mb-2 !text-5xl md:!text-[5rem] !font-black leading-tight mb-6 tracking-normal">
             覺醒吧
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
@@ -237,11 +234,11 @@ useEffect(() => {
             </span>
           </h1>
 
-          <p className="text-gray-400 max-w-lg mx-auto mb-10 text-sm md:text-base">
+          <p className="text-gray-400 max-w-lg mx-auto mb-4 text-sm md:text-base">
             在崩壞的星際邊境中，唯有與「NOVA」連結，才能重啟文明的曙光。限時事前登錄活動現正開啟。
           </p>
 
-          <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col md:flex-row gap-4 p-4 justify-center items-center">
             <button
               className="btn-neon hero-btn text-lg"
               onClick={() => alert("預約成功！獎勵將於公測發放")}
@@ -264,7 +261,8 @@ useEffect(() => {
       <section
         ref={sectionRef}
         id="rewards"
-        className="py-20 px-6 max-w-6xl mx-auto"
+        className="py-24 md:py-32 px-6 max-w-6xl mx-auto"
+        data-aos="fade-down"
       >
         {/* 標題 */}
         <div className="text-center mb-16">
@@ -319,7 +317,7 @@ useEffect(() => {
       </section>
 
       {/* Section 3: 角色介紹 */}
-      <section id="chars" className="py-20 px-6 bg-black/40">
+      <section id="chars" className="py-24 md:py-32 px-6 bg-black/40">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4 font-orbitron">EXECUTORS</h2>
@@ -330,6 +328,8 @@ useEffect(() => {
             {/* 角色 1 */}
             <div
               className="glass-card char-card scroll-card group"
+              data-aos="zoom-in"
+              data-aos-delay="0"
               onClick={() => navigate("/characters1")}
             >
               <div className="video-container">
@@ -340,10 +340,7 @@ useEffect(() => {
                 />
                 {/* Hover 影片 (此處用 placeholder 影片模擬) */}
                 <video className="hover-video" autoPlay muted loop playsInline>
-                  <source
-                    src={heroVideo}
-                    type="video/mp4"
-                  />
+                  <source src={heroVideo} type="video/mp4" />
                 </video>
               </div>
               <div className="p-6">
@@ -372,17 +369,14 @@ useEffect(() => {
             {/* 角色 2 */}
             <div
               className="glass-card char-card scroll-card group"
-             onClick={() => navigate("/characters2")}
+              data-aos="zoom-in"
+              data-aos-delay="150"
+              onClick={() => navigate("/characters2")}
             >
               <div className="video-container">
-                <img
-                  src={c1Img}
-                />
+                <img src={c1Img} />
                 <video className="hover-video" autoPlay muted loop playsInline>
-                  <source
-                    src={c1Video}
-                    type="video/mp4"
-                  />
+                  <source src={c1Video} type="video/mp4" />
                 </video>
               </div>
               <div className="p-6">
@@ -411,17 +405,14 @@ useEffect(() => {
             {/* 角色 3 */}
             <div
               className="glass-card char-card scroll-card group"
+              data-aos="zoom-in"
+              data-aos-delay="300"
               onClick={() => navigate("/characters3")}
             >
               <div className="video-container">
-                <img
-                  src={c2Img}
-                />
+                <img src={c2Img} />
                 <video className="hover-video" autoPlay muted loop playsInline>
-                  <source
-                    src={c2Video}
-                    type="video/mp4"
-                  />
+                  <source src={c2Video} type="video/mp4" />
                 </video>
               </div>
               <div className="p-6">

@@ -5,31 +5,28 @@ function Characters1() {
   const navigate = useNavigate();
 
   return (
-    <section className="min-h-screen bg-gradient-to-b from-cyan-900 via-slate-950 to-black text-white pt-[140px] px-6 pb-20">
+    <section className="py-24 md:py-32 min-h-screen bg-gradient-to-b from-cyan-900 via-slate-950 to-black text-white pt-[140px] px-6 pb-20">
       <div className="max-w-6xl mx-auto">
         {/* 返回按鈕 */}
         <button
           onClick={() => navigate("/")}
-          className="mb-10 text-cyan-400 hover:text-white transition"
+          className="mb-10 p-4 text-cyan-400 hover:text-white transition"
         >
           ← 返回名錄
         </button>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-         {/* 左側影片 */}
-<div className="rounded-2xl overflow-hidden border border-cyan-500/30 bg-white/5">
-  <video
-    autoPlay
-    muted
-    loop
-    playsInline
-    className="w-full h-full object-cover"
-  >
-    <source
-      src={heroVideo}
-      type="video/mp4"
-    />
-  </video>
-</div>
+          {/* 左側影片 */}
+          <div className="rounded-2xl overflow-hidden border border-cyan-500/30 bg-white/5">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              <source src={heroVideo} type="video/mp4" />
+            </video>
+          </div>
 
           {/* 右側資訊 */}
           <div>

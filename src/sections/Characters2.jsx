@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import c1Video from "../assets/c1.mp4";
+import AnimatedProgress from "../components/AnimatedProgress";
 
 function Characters2() {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ function Characters2() {
         </button>
 
         {/* 主內容 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* 左側影片 */}
           <div className="rounded-2xl overflow-hidden border border-purple-500/30 bg-white/5">
             <video
@@ -57,40 +58,34 @@ function Characters2() {
             <div className="space-y-4 m-4">
               <div>
                 <div className="flex justify-between text-sm mb-2">
-                  <span>駭入</span>
-                  <span className="text-purple-400">98</span>
+                  <span>攻擊</span>
+                  <span className="text-purple-400">95</span>
                 </div>
 
-                <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
-                  <div className="h-full w-[98%] bg-purple-400"></div>
-                </div>
+                <AnimatedProgress targetProgress={95} color="purple" />
               </div>
 
               <div>
                 <div className="flex justify-between text-sm mb-2">
                   <span>機動</span>
-                  <span className="text-purple-400">90</span>
+                  <span className="text-purple-400">85</span>
                 </div>
 
-                <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
-                  <div className="h-full w-[90%] bg-purple-400"></div>
-                </div>
+                <AnimatedProgress targetProgress={85} color="purple" />
               </div>
 
               <div>
                 <div className="flex justify-between text-sm mb-2">
-                  <span>防禦</span>
-                  <span className="text-purple-400">45</span>
+                  <span>生命</span>
+                  <span className="text-purple-400">75</span>
                 </div>
 
-                <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
-                  <div className="h-full w-[45%] bg-purple-400"></div>
-                </div>
+                <AnimatedProgress targetProgress={75} color="purple" />
               </div>
             </div>
 
             {/* 按鈕 */}
-            <button className="w-full mt-10 py-4 bg-purple-500 text-white font-black rounded-xl hover:bg-purple-400 transition">
+            <button className="w-full mt-5 py-4 bg-purple-500 text-white font-black rounded-xl hover:bg-purple-400 transition">
               開始滲透任務
             </button>
           </div>

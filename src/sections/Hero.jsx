@@ -71,6 +71,7 @@ function Hero() {
       });
     };
   }, []);
+
   useEffect(() => {
     const targetCount = 750000;
     const targetProgress = 75;
@@ -124,82 +125,135 @@ function Hero() {
 
     return () => observer.disconnect();
   }, []);
+
+  //雷達生長動畫
   useEffect(() => {
-    if (!chart1Ref.current || !chart2Ref.current || !chart3Ref.current) {
-      return;
-    }
+  if (!chart1Ref.current || !chart2Ref.current || !chart3Ref.current) {
+    return;
+  }
 
-    const chartConfig = (data, color) => ({
-      type: "radar",
+  // 補回這段
+  const chartConfig = (data, color) => ({
+    type: "radar",
 
-      data: {
-        labels: ["攻擊", "防禦", "機動", "輔助", "生命", "射程"],
+    data: {
+      labels: ["攻擊", "防禦", "機動", "輔助", "生命", "射程"],
 
-        datasets: [
-          {
-            data,
-            backgroundColor: `${color}33`,
-            borderColor: color,
-            borderWidth: 2,
-            pointRadius: 0,
-          },
-        ],
+      datasets: [
+        {
+          data,
+          backgroundColor: `${color}33`,
+          borderColor: color,
+          borderWidth: 2,
+          pointRadius: 0,
+        },
+      ],
+    },
+
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+
+      animation: {
+        duration: 1400,
+  easing: "easeOutCirc",
       },
 
-      options: {
-        scales: {
-          r: {
-            grid: {
-              color: "rgba(255,255,255,0.1)",
-            },
+      scales: {
+        r: {
+          min: 0,
+          max: 100,
 
-            angleLines: {
-              color: "rgba(255,255,255,0.1)",
-            },
-
-            ticks: {
-              display: false,
-            },
-
-            pointLabels: {
-              color: "#888",
-
-              font: {
-                size: 10,
-              },
-            },
+          grid: {
+            color: "rgba(255,255,255,0.1)",
           },
-        },
 
-        plugins: {
-          legend: {
+          angleLines: {
+            color: "rgba(255,255,255,0.1)",
+          },
+
+          ticks: {
             display: false,
           },
+
+          pointLabels: {
+            color: "#888",
+
+            font: {
+              size: 10,
+            },
+          },
         },
       },
-    });
 
-    const chart1 = new Chart(
-      chart1Ref.current,
-      chartConfig([95, 70, 85, 40, 75, 60], "#00f2ff"),
-    );
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
+    },
+  });
 
-    const chart2 = new Chart(
-      chart2Ref.current,
-      chartConfig([60, 40, 95, 90, 50, 80], "#a855f7"),
-    );
+  const chart1 = new Chart(
+    chart1Ref.current,
+    chartConfig([0, 0, 0, 0, 0, 0], "#00f2ff"),
+  );
 
-    const chart3 = new Chart(
-      chart3Ref.current,
-      chartConfig([80, 95, 40, 30, 98, 70], "#eab308"),
-    );
+  const chart2 = new Chart(
+    chart2Ref.current,
+    chartConfig([0, 0, 0, 0, 0, 0], "#a855f7"),
+  );
 
-    return () => {
-      chart1.destroy();
-      chart2.destroy();
-      chart3.destroy();
-    };
-  }, []);
+  const chart3 = new Chart(
+    chart3Ref.current,
+    chartConfig([0, 0, 0, 0, 0, 0], "#eab308"),
+  );
+
+  let animated = false;
+
+  const chartObserver = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting && !animated) {
+  animated = true;
+
+  // 第1張
+  setTimeout(() => {
+    chart1.data.datasets[0].data = [95, 70, 85, 40, 75, 60];
+    chart1.update();
+  }, 0);
+
+  // 第2張
+  setTimeout(() => {
+    chart2.data.datasets[0].data = [60, 40, 95, 90, 50, 80];
+    chart2.update();
+  }, 500);
+
+  // 第3張
+  setTimeout(() => {
+    chart3.data.datasets[0].data = [80, 95, 40, 30, 98, 70];
+    chart3.update();
+  }, 1000);
+}
+    },
+    {
+      threshold: 0.3,
+    },
+  );
+
+  const charsSection = document.querySelector("#chars");
+
+  if (charsSection) {
+    chartObserver.observe(charsSection);
+  }
+
+  return () => {
+    chartObserver.disconnect();
+
+    chart1.destroy();
+    chart2.destroy();
+    chart3.destroy();
+  };
+}, []);
 
   return (
     <>
@@ -358,7 +412,7 @@ function Hero() {
                     <div className="text-cyan-400 font-orbitron">S-RANK</div>
                   </div>
                 </div>
-                <div className="chart-box flex justify-center">
+                <div className="chart-box flex justify-center h-[220px]">
                   <canvas ref={chart1Ref}></canvas>
                 </div>
                 <p className="text-gray-500 text-xs mt-4 leading-relaxed">

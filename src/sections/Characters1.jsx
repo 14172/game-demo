@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import heroVideo from "../assets/v2_watermarked-3c685133-00f7-4f10-8dd0-9f94dbbd4833.mp4";
+import AnimatedProgress from "../components/AnimatedProgress";
 
 function Characters1() {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ function Characters1() {
         >
           ← 返回名錄
         </button>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* 左側影片 */}
           <div className="rounded-2xl overflow-hidden border border-cyan-500/30 bg-white/5">
             <video
@@ -59,9 +60,10 @@ function Characters1() {
                   <span className="text-cyan-400">95</span>
                 </div>
 
-                <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
-                  <div className="h-full w-[95%] bg-cyan-400"></div>
-                </div>
+                <AnimatedProgress
+  targetProgress={95}
+  color="cyan"
+/>
               </div>
 
               <div>
@@ -70,9 +72,10 @@ function Characters1() {
                   <span className="text-cyan-400">85</span>
                 </div>
 
-                <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
-                  <div className="h-full w-[85%] bg-cyan-400"></div>
-                </div>
+                <AnimatedProgress
+  targetProgress={85}
+  color="cyan"
+/>
               </div>
 
               <div>
@@ -81,13 +84,14 @@ function Characters1() {
                   <span className="text-cyan-400">75</span>
                 </div>
 
-                <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
-                  <div className="h-full w-[75%] bg-cyan-400"></div>
-                </div>
+                <AnimatedProgress
+  targetProgress={75}
+  color="cyan"
+/>
               </div>
             </div>
-
-            <button className="w-full mt-10 py-4 bg-cyan-400 text-black font-black rounded-xl hover:bg-white transition">
+            
+            <button className="w-full mt-5 py-4 bg-cyan-400 text-black font-black rounded-xl hover:bg-white transition">
               立即參加活動
             </button>
           </div>

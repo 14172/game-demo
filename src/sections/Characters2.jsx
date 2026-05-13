@@ -85,7 +85,7 @@ function Characters2() {
             </div>
 
             {/* 按鈕 */}
-            <button className="w-full mt-5 py-4 bg-purple-500 text-white font-black rounded-xl hover:bg-purple-400 transition">
+            <button className="w-full mt-5 py-4 rounded-pill bg-purple-500 text-white font-black rounded-xl hover:bg-purple-400 transition">
               開始滲透任務
             </button>
           </div>

@@ -85,7 +85,7 @@ function Characters3() {
             </div>
 
             {/* 按鈕 */}
-            <button className="w-full mt-5 py-4 bg-yellow-500 text-black font-black rounded-xl hover:bg-yellow-400 transition">
+            <button className="w-full mt-5 py-4 rounded-pill bg-yellow-500 text-black font-black rounded-xl hover:bg-yellow-400 transition">
               進入殲滅作戰
             </button>
           </div>

@@ -60,10 +60,7 @@ function Characters1() {
                   <span className="text-cyan-400">95</span>
                 </div>
 
-                <AnimatedProgress
-  targetProgress={95}
-  color="cyan"
-/>
+                <AnimatedProgress targetProgress={95} color="cyan" />
               </div>
 
               <div>
@@ -72,10 +69,7 @@ function Characters1() {
                   <span className="text-cyan-400">85</span>
                 </div>
 
-                <AnimatedProgress
-  targetProgress={85}
-  color="cyan"
-/>
+                <AnimatedProgress targetProgress={85} color="cyan" />
               </div>
 
               <div>
@@ -84,14 +78,11 @@ function Characters1() {
                   <span className="text-cyan-400">75</span>
                 </div>
 
-                <AnimatedProgress
-  targetProgress={75}
-  color="cyan"
-/>
+                <AnimatedProgress targetProgress={75} color="cyan" />
               </div>
             </div>
-            
-            <button className="w-full mt-5 py-4 bg-cyan-400 text-black font-black rounded-xl hover:bg-white transition">
+
+            <button className="w-full mt-5 py-4 rounded-pill bg-cyan-400 text-black font-black rounded-xl hover:bg-white transition">
               立即參加活動
             </button>
           </div>

@@ -326,7 +326,7 @@ function Hero() {
           <p className="text-gray-500">達成全球預約人數，解鎖史詩級虛寶</p>
         </div>
 
-        <div className="glass-card p-8 mb-12">
+        <div className="glass-card rounded-4 p-8 mb-12">
           <div className="flex justify-between mb-4 font-bold text-cyan-400">
             <span>目前預約人數</span>
             {/* 動態讀條 */}
@@ -381,7 +381,7 @@ function Hero() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* 角色 1 */}
             <div
-              className="glass-card char-card scroll-card group"
+              className="glass-card rounded-3 char-card scroll-card group"
               data-aos="zoom-in"
               data-aos-delay="0"
               onClick={() => navigate("/characters1")}
@@ -422,7 +422,7 @@ function Hero() {
             </div>
             {/* 角色 2 */}
             <div
-              className="glass-card char-card scroll-card group"
+              className="glass-card rounded-3 char-card scroll-card group"
               data-aos="zoom-in"
               data-aos-delay="150"
               onClick={() => navigate("/characters2")}
@@ -458,7 +458,7 @@ function Hero() {
             </div>
             {/* 角色 3 */}
             <div
-              className="glass-card char-card scroll-card group"
+              className="glass-card rounded-3 char-card scroll-card group"
               data-aos="zoom-in"
               data-aos-delay="300"
               onClick={() => navigate("/characters3")}

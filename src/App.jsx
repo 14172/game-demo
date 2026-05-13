@@ -10,10 +10,11 @@ import Characters1 from "./sections/Characters1";
 import Characters2 from "./sections/Characters2";
 import Characters3 from "./sections/Characters3";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const [loading, setLoading] = useState(true);
-  
+
  // AOS 初始化
   useEffect(() => {
     AOS.init({
@@ -32,8 +33,9 @@ function App() {
 
   return (
     <BrowserRouter>
+    <ScrollToTop />
       <Navbar />
-
+      
       <Routes>
         <Route
           path="/"
